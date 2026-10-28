@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>1701 Labs — Estudio independiente de videojuegos y software</title>
+<meta name="description" content="1701 Labs crea videojuegos y software independientes: arcades de neón, herramientas con IA y agentes autónomos. Un humano. Una IA. Contra el mundo.">
+<meta name="author" content="Ahiram1701">
+<meta name="theme-color" content="#0A0A0B">
+<link rel="canonical" href="https://1701-labs.github.io/">
+<meta property="og:title" content="1701 Labs">
+<meta property="og:description" content="Un humano. Una IA. Contra el mundo. Videojuegos y software independientes desde Monterrey.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://1701-labs.github.io/">
+<meta property="og:image" content="https://1701-labs.github.io/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="1701 Labs — Un humano. Una IA. Contra el mundo.">
+<meta property="og:locale" content="es_MX">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@1701labs">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {"@type":"Organization","@id":"https://1701-labs.github.io/#org","name":"1701 Labs","url":"https://1701-labs.github.io/",
+     "logo":"https://1701-labs.github.io/favicon.svg","email":"a1701labs@hotmail.com","founder":{"@type":"Person","name":"Ahiram1701"},
+     "address":{"@type":"PostalAddress","addressLocality":"Monterrey","addressCountry":"MX"},
+     "sameAs":["https://github.com/1701-Labs","https://www.instagram.com/1701labs/","https://x.com/1701labs"]},
+    {"@type":"ItemList","name":"Proyectos de 1701 Labs","itemListElement":[
+      {"@type":"ListItem","position":1,"item":{"@type":"VideoGame","name":"OVERDRIVE","url":"https://ahiram1701.github.io/overdrive/","gamePlatform":"Web (PWA)","publisher":{"@id":"https://1701-labs.github.io/#org"}}},
+      {"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"confinet","url":"https://ahiram1701.github.io/confinet/","applicationCategory":"BrowserApplication"}},
+      {"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"PromptVault","url":"https://puter.com/app/promptvault","applicationCategory":"ProductivityApplication"}},
+      {"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"MyStats","url":"https://puter.com/app/mystats","applicationCategory":"LifestyleApplication"}},
+      {"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"VibeMusic","url":"https://github.com/ahiram1701/VibeMusic","applicationCategory":"MultimediaApplication"}},
+      {"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Mamoney","url":"https://github.com/ahiram1701/Mamoney","applicationCategory":"FinanceApplication","operatingSystem":"Windows"}},
+      {"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"Yarbis","url":"https://github.com/ahiram1701/Yarbis"}},
+      {"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"datapilot","url":"https://github.com/ahiram1701/datapilot"}},
+      {"@type":"ListItem","position":9,"item":{"@type":"SoftwareApplication","name":"Oraqlo","url":"https://github.com/ahiram1701/Oraqlo"}},
+      {"@type":"ListItem","position":10,"item":{"@type":"SoftwareApplication","name":"Polybot","url":"https://github.com/ahiram1701/Polybot"}},
+      {"@type":"ListItem","position":11,"item":{"@type":"SoftwareApplication","name":"Webbot","url":"https://github.com/ahiram1701/Webbot"}},
+      {"@type":"ListItem","position":12,"item":{"@type":"SoftwareApplication","name":"Scrappy","url":"https://github.com/ahiram1701/Scrappy"}},
+      {"@type":"ListItem","position":13,"item":{"@type":"SoftwareApplication","name":"BuildKit","url":"https://create.roblox.com/store/asset/79652808648466/BuildKit-Batch-Rename-Align-Cleanup-Tools","applicationCategory":"DeveloperApplication"}}
+    ]}
+  ]
+}
+</script>
+<style>
+:root{
+  --bg:#0A0A0B; --panel:#0F0F11; --line:#1F1F22; --line-2:#2A2A2E; --line-3:#3A3A3E;
+  --text:#EDEDEA; --text-2:#B4B4AF; --text-3:#9A9A95;
+  --accent:#2EF2D6; /* cámbialo aquí: #B6F23A verde, #FF5E3A naranja, #8C7CFF violeta */
+  --glitch:#FF3AF2;
+  --sans:'Space Grotesk',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:88px}
+body{
+  margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);
+  background-image:linear-gradient(#141416 1px,transparent 1px),linear-gradient(90deg,#141416 1px,transparent 1px);
+  background-size:64px 64px;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono)}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--text-3)}
+.accent{color:var(--accent)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:16px;top:-60px;z-index:20;background:var(--accent);color:var(--bg);padding:10px 16px;font-weight:600}
+.skip:focus{top:12px}
+
+/* Nav */
+header{border-bottom:1px solid var(--line);background:rgba(10,10,11,.92);position:sticky;top:0;z-index:10;backdrop-filter:blur(8px)}
+nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.brand{display:flex;align-items:center;gap:12px}
+.mark{width:36px;height:36px;border:2px solid var(--text);position:relative;font-family:var(--mono);font-size:10px;font-weight:500;line-height:1;flex:none}
+.mark span:first-child{position:absolute;top:3px;left:4px}
+.mark span:last-child{position:absolute;bottom:3px;right:4px;color:var(--accent)}
+.brand-name{font-size:18px;font-weight:600;letter-spacing:.12em}
+.links{display:flex;gap:24px;font-family:var(--mono);font-size:13px;margin-left:auto}
+.links a{color:var(--text-2);padding:8px 0;white-space:nowrap;box-shadow:inset 0 0 0 transparent;transition:color .15s ease,box-shadow .15s ease}
+.links a:hover{color:var(--text)}
+.links a.active{color:var(--text);box-shadow:inset 0 -2px 0 var(--accent)}
+.lang{background:none;border:1px solid var(--line-3);color:var(--text-3);font-family:var(--mono);font-size:12px;padding:8px 10px;min-height:36px;cursor:pointer}
+.lang:hover{border-color:var(--text-3)}
+.lang .on{color:var(--accent)}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:52px;padding:0 28px;font-weight:600;font-size:16px;transition:transform .15s ease,background .15s ease,border-color .15s ease}
+.btn-primary{background:var(--accent);color:var(--bg)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--line-3);font-weight:500}
+.btn-ghost:hover{border-color:var(--text-3)}
+
+/* Hero */
+.hero{padding:120px 0 96px}
+.hero .eyebrow{color:var(--accent);margin-bottom:32px}
+h1{margin:0;font-size:clamp(44px,8vw,104px);line-height:.98;font-weight:600;letter-spacing:-.03em}
+h1 .dim{color:#8E8E89}
+.lead{margin:40px 0 0;font-size:20px;line-height:1.55;color:var(--text-2);max-width:620px}
+.ctas{display:flex;flex-wrap:wrap;gap:16px;margin-top:48px}
+.stats{display:flex;flex-wrap:wrap;gap:48px;margin-top:96px;padding-top:32px;border-top:1px solid var(--line);font-family:var(--mono)}
+.stats b{display:block;font-size:36px;font-weight:500;font-variant-numeric:tabular-nums}
+.stats small{display:block;font-size:12px;color:var(--text-3);margin-top:6px;letter-spacing:.06em}
+
+/* Secciones */
+section{padding:64px 0}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:32px}
+h2{margin:0;font-size:44px;font-weight:600;letter-spacing:-.02em}
+.sec-note{margin:0;font-size:16px;color:var(--text-3);max-width:380px;line-height:1.55}
+.go{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--accent);display:inline-flex;align-items:center;gap:6px}
+.arr{display:inline-block;transition:transform .15s ease}
+
+/* OVERDRIVE */
+.feature{border:1px solid var(--line-2);background:var(--panel);display:flex;flex-wrap:wrap}
+.feature-main{flex:1 1 460px;min-width:0;padding:48px;display:flex;flex-direction:column;gap:24px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;font-family:var(--mono);font-size:12px}
+.tag{padding:6px 10px;border:1px solid var(--line-3);color:var(--text-2)}
+.tag.on{border-color:var(--accent);color:var(--accent)}
+.game-title{position:relative;margin:0;font-size:clamp(48px,7vw,88px);font-weight:700;letter-spacing:-.02em;line-height:.95;font-style:italic;
+  text-shadow:0 0 28px color-mix(in srgb,var(--accent) 40%,transparent)}
+.game-title::before,.game-title::after{content:attr(data-text);content:attr(data-text) / "";position:absolute;inset:0;opacity:0;pointer-events:none;text-shadow:none}
+.game-title::before{color:var(--accent)}
+.game-title::after{color:var(--glitch)}
+.feature:hover .game-title::before{animation:glitch-a .5s steps(3) 1}
+.feature:hover .game-title::after{animation:glitch-b .5s steps(3) 1}
+@keyframes glitch-a{0%{opacity:.9;transform:translate(-5px,0);clip-path:inset(8% 0 62% 0)}50%{opacity:.9;transform:translate(4px,0);clip-path:inset(58% 0 12% 0)}100%{opacity:0;transform:none;clip-path:inset(0)}}
+@keyframes glitch-b{0%{opacity:.9;transform:translate(5px,0);clip-path:inset(48% 0 28% 0)}50%{opacity:.9;transform:translate(-4px,0);clip-path:inset(14% 0 70% 0)}100%{opacity:0;transform:none;clip-path:inset(0)}}
+.feature-main p{margin:0;font-size:18px;line-height:1.6;color:var(--text-2);max-width:460px}
+.feature-main .btn{align-self:flex-start}
+.modes{flex:1 1 420px;min-width:0;border-left:1px solid var(--line-2);display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.mode{padding:32px;min-height:180px;display:flex;flex-direction:column;justify-content:space-between}
+.mode:nth-child(1),.mode:nth-child(2){border-bottom:1px solid var(--line-2)}
+.mode:nth-child(odd){border-right:1px solid var(--line-2)}
+.mode svg{stroke:var(--accent)}
+.mode h3{margin:0;font-size:22px;font-weight:600}
+.mode small{display:block;font-family:var(--mono);font-size:12px;color:var(--text-3);margin-top:6px}
+
+/* Tarjetas (apps y agentes) */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1px;background:var(--line-2);border:1px solid var(--line-2)}
+.card{position:relative;background:var(--panel);padding:28px;display:flex;flex-direction:column;gap:14px;min-height:220px;transition:background .15s ease}
+.card:hover{background:#131316}
+.card::before,.spot::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.card:hover::before,.card:focus-visible::before,.spot:hover::before,.spot:focus-visible::before{transform:scaleX(1)}
+.card:hover .arr,.card:focus-visible .arr,.lab-row:hover .arr,.spot:hover .arr{transform:translate(3px,-3px)}
+.card-meta{display:flex;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:12px;color:var(--text-3)}
+.card h3{margin:0;font-size:24px;font-weight:600}
+.card p{margin:0;font-size:15px;line-height:1.55;color:var(--text-2)}
+.card .go{margin-top:auto}
+
+/* Bots */
+.lab{border-top:1px solid var(--line-2)}
+.lab-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px 32px;padding:24px 12px;border-bottom:1px solid var(--line-2);transition:background .15s ease}
+.lab-row:hover{background:var(--panel)}
+.lab-row .id{font-family:var(--mono);font-size:12px;color:var(--accent);width:64px}
+.lab-row h3{margin:0;font-size:22px;font-weight:600;width:160px}
+.lab-row p{margin:0;flex:1 1 320px;font-size:15px;color:var(--text-2);line-height:1.5}
+
+/* Para creadores */
+.spot{position:relative;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 48px;border:1px solid var(--line-2);background:var(--panel);padding:40px 48px}
+.spot-main{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.spot h3{margin:0;font-size:36px;font-weight:600;letter-spacing:-.01em}
+.spot p{margin:0;font-size:17px;line-height:1.55;color:var(--text-2);max-width:560px}
+.spot:hover .btn-primary{transform:translateY(-2px)}
+
+/* Manifiesto */
+.manifesto{border:1px solid var(--line-2);background:var(--panel);padding:56px 48px}
+.manifesto p{margin:0;font-size:clamp(24px,3vw,36px);line-height:1.35;font-weight:500;max-width:900px}
+.manifesto .sign{margin-top:32px;font-family:var(--mono);font-size:14px;color:var(--text-3)}
+.cursor{display:inline-block;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* Footer */
+footer{border-top:1px solid var(--line);margin-top:32px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;padding:64px 0}
+.foot-title{font-size:32px;font-weight:600}
+.mail{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:16px;color:var(--accent)}
+.social{display:flex;flex-wrap:wrap;gap:32px;font-family:var(--mono);font-size:14px}
+.social a{color:var(--text-2);display:flex;align-items:center;gap:8px;min-height:44px}
+.social a:hover{color:var(--text)}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:24px 0;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--text-3)}
+
+/* Aparición al hacer scroll (la clase .reveal solo la pone el JS) */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease,background .15s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:640px){
+  html{scroll-padding-top:120px}
+  nav{padding:14px 0 0;gap:12px}
+  .links{order:3;flex-basis:100%;margin:0 -24px;padding:0 24px 6px;gap:20px;overflow-x:auto;scrollbar-width:none}
+  .links::-webkit-scrollbar{display:none}
+  .hero{padding:72px 0 64px}
+  .stats{gap:28px;margin-top:64px}
+  .feature-main{padding:32px 24px}
+  .modes{border-left:none;border-top:1px solid var(--line-2)}
+  .mode{padding:24px;min-height:150px}
+  h2{font-size:34px}
+  .spot{padding:32px 24px}
+  .spot h3{font-size:30px}
+  .manifesto{padding:36px 24px}
+  .lab-row h3{width:auto}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .cursor{animation:none}
+  .btn,.card,.arr,.card::before,.spot::before,.lab-row{transition:none}
+  .feature:hover .game-title::before,.feature:hover .game-title::after{animation:none}
+  .reveal{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip" data-i18n="skip">Saltar al contenido</a>
+
+<header>
+  <nav class="wrap" aria-label="Principal">
+    <a href="#inicio" class="brand" aria-label="1701 Labs">
+      <span class="mark" aria-hidden="true"><span>17</span><span>01</span></span>
+      <span class="brand-name">1701 LABS</span>
+    </a>
+    <div class="links">
+      <a href="#juegos" data-i18n="nav.games">/juegos</a>
+      <a href="#apps">/apps</a>
+      <a href="#agentes" data-i18n="nav.agents">/agentes</a>
+      <a href="#bots">/bots</a>
+      <a href="#creadores" data-i18n="nav.creators">/creadores</a>
+      <a href="#contacto" data-i18n="nav.contact">/contacto</a>
+    </div>
+    <button type="button" class="lang" id="lang" aria-label="Switch to English"><span data-l="es" class="on">ES</span> / <span data-l="en">EN</span></button>
+  </nav>
+</header>
+
+<main id="main">
+  <section id="inicio" class="hero wrap">
+    <div class="eyebrow" data-i18n="hero.eyebrow">// ESTUDIO INDEPENDIENTE · MONTERREY, MX · EST. 2026</div>
+    <h1><span data-i18n-html="hero.h1">Un humano.<br>Una IA.<br><span class="dim">Contra el mundo.</span></span><span class="cursor accent" aria-hidden="true">_</span></h1>
+    <p class="lead" data-i18n="hero.lead">1701 Labs crea videojuegos y software independientes: arcades de neón, herramientas con IA y agentes autónomos. Diseñado, programado y lanzado por una sola persona trabajando junto a la IA.</p>
+    <div class="ctas">
+      <a href="#juegos" class="btn btn-primary"><span data-i18n="cta.play">Jugar OVERDRIVE</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#apps" class="btn btn-ghost" data-i18n="cta.see">Ver proyectos</a>
+    </div>
+    <div class="stats">
+      <div><b data-count="1">1</b><small data-i18n="st.founder">FUNDADOR</small></div>
+      <div><b data-count="4">4</b><small data-i18n="st.modes">MODOS ARCADE</small></div>
+      <div><b data-count="13">13</b><small data-i18n="st.projects">PROYECTOS</small></div>
+      <div><b>25.67°N</b><small>100.31°W</small></div>
+    </div>
+  </section>
+
+  <section id="juegos" class="wrap">
+    <div class="eyebrow" style="margin-bottom:24px" data-i18n="s1.eyebrow">01 — JUEGOS</div>
+    <article class="feature">
+      <div class="feature-main">
+        <div class="tags"><span class="tag on">PWA</span><span class="tag" data-i18n="tag.offline">SIN CONEXIÓN</span><span class="tag" data-i18n="tag.free">GRATIS</span></div>
+        <h2 class="game-title" data-text="OVERDRIVE">OVERDRIVE</h2>
+        <p data-i18n="od.p">Cuatro juegos arcade de neón en una sola app. Instálala desde el navegador y juega donde sea, incluso sin internet.</p>
+        <a href="https://ahiram1701.github.io/overdrive/" class="btn btn-primary" target="_blank" rel="noopener"><span data-i18n="od.play">Jugar ahora</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 4l12 8-12 8z"/></svg>
+          <span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span>
+        </a>
+      </div>
+      <div class="modes">
+        <div class="mode">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true"><path d="M3 18h18M6 14l4-8 4 5 3-3 4 6"/></svg>
+          <div><h3>Runner</h3><small><span data-i18n="mode">MODO</span> 01</small></div>
+        </div>
+        <div class="mode">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="3"/><ellipse cx="12" cy="12" rx="10" ry="4"/></svg>
+          <div><h3 data-i18n="mode.galaxy">Galaxia</h3><small><span data-i18n="mode">MODO</span> 02</small></div>
+        </div>
+        <div class="mode">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true"><path d="M12 2l9 5v10l-9 5-9-5V7z"/><path d="M12 12l9-5M12 12v10M12 12L3 7"/></svg>
+          <div><h3 data-i18n="mode.dungeon">Mazmorras 3D</h3><small><span data-i18n="mode">MODO</span> 03</small></div>
+        </div>
+        <div class="mode">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="4"/></svg>
+          <div><h3>Arena</h3><small><span data-i18n="mode">MODO</span> 04</small></div>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Para agregar un proyecto: copia una tarjeta <a class="card">, cambia href y textos,
+       y agrega sus claves (p.ej. "p.nuevo") en los dos idiomas del objeto I18N al final. -->
+  <section id="apps" class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px">02 — APPS</div>
+        <h2 data-i18n="s2.h2">Úsalas hoy</h2>
+      </div>
+      <p class="sec-note" data-i18n="s2.note">Herramientas con IA para pensar mejor, crear más rápido y llevar el control de tu vida.</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="https://ahiram1701.github.io/confinet/" target="_blank" rel="noopener">
+        <div class="card-meta"><span>A/01</span><span data-i18n="m.ext">EXTENSIÓN · PWA</span></div>
+        <h3>confinet</h3><p data-i18n="p.confinet">Mide qué tan confiable es la información que lees en internet, con análisis de IA.</p>
+        <span class="go"><span data-i18n="go.open">ABRIR</span> <span class="arr" aria-hidden="true">↗</span><span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span></span>
+      </a>
+      <a class="card" href="https://puter.com/app/promptvault" target="_blank" rel="noopener">
+        <div class="card-meta"><span>A/02</span><span>WEB</span></div>
+        <h3>PromptVault</h3><p data-i18n="p.promptvault">Guarda y organiza tus prompts, con cuenta de Puter o en modo local.</p>
+        <span class="go"><span data-i18n="go.open">ABRIR</span> <span class="arr" aria-hidden="true">↗</span><span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span></span>
+      </a>
+      <a class="card" href="https://puter.com/app/mystats" target="_blank" rel="noopener">
+        <div class="card-meta"><span>A/03</span><span>WEB</span></div>
+        <h3>MyStats</h3><p data-i18n="p.mystats">Tu vida como un RPG: ocho stats (dinero, salud, inteligencia, carisma y más) en un solo panel.</p>
+        <span class="go"><span data-i18n="go.open">ABRIR</span> <span class="arr" aria-hidden="true">↗</span><span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span></span>
+      </a>
+      <a class="card" href="https://github.com/ahiram1701/VibeMusic" target="_blank" rel="noopener">
+        <div class="card-meta"><span>A/04</span><span data-i18n="m.audio">AUDIO · AGENTE</span></div>
+        <h3>VibeMusic</h3><p data-i18n="p.vibemusic">Describe una canción con palabras y un agente productor la genera en un timeline multipista.</p>
+        <span class="go">GITHUB <span class="arr" aria-hidden="true">↗</span><span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span></span>
+      </a>
+      <a class="card" href="https://github.com/ahiram1701/Mamoney" target="_blank" rel="noopener">
+        <div class="card-meta"><span>A/05</span><span>WINDOWS · LOCAL</span></div>
+        <h3>Mamoney</h3><p data-i18n="p.mamoney">Gestor de patrimonio, ingresos y gastos fijos. Tus datos se quedan en tu equipo, con dashboard remoto privado.</p>
+        <span class="go">GITHUB <span class="arr" aria-hidden="true">↗</span><span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section id="agentes" class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px" data-i18n="s3.eyebrow">03 — AGENTES IA</div>
+        <h2 data-i18n="s3.h2">Agentes autónomos</h2>
+      </div>
+      <p class="sec-note" data-i18n="s3.note">Agentes que planean, analizan y predicen por ti.</p>
+    </div>
+    <div class="grid">
+      <a class="card" href="https://github.com/ahiram1701/Yarbis" target="_blank" rel="noopener">
+        <div class="card-meta"><span>G/01</span><span data-i18n="m.agentlocal">AGENTE · LOCAL</span></div>
+        <h3>Yarbis</h3><p data-i18n="p.yarbis">Agente personal que convierte un objetivo en tareas accionables y recuerda todo lo que haces.</p>
+        <span class="go">GITHUB <span class="arr" aria-hidden="true">↗</span><span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span></span>
+      </a>
+      <a class="card" href="https://github.com/ahiram1701/datapilot" target="_blank" rel="noopener">
+        <div class="card-meta"><span>G/02</span><span data-i18n="m.multi">MULTI-AGENTE</span></div>
+        <h3>datapilot</h3><p data-i18n="p.datapilot">Un equipo de agentes LLM que analiza tus datos y entrena modelos de machine learning.</p>
+        <span class="go">GITHUB <span class="arr" aria-hidden="true">↗</span><span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span></span>
+      </a>
+      <a class="card" href="https://github.com/ahiram1701/Oraqlo" target="_blank" rel="noopener">
+        <div class="card-meta"><span>G/03</span><span data-i18n="m.forecast">AGENTE · PREVISIÓN</span></div>
+        <h3>Oraqlo</h3><p data-i18n="p.oraqlo">Agente estratega que modela el mundo, hace previsiones probabilísticas y simula futuros posibles.</p>
+        <span class="go">GITHUB <span class="arr" aria-hidden="true">↗</span><span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span></span>
+      </a>
+    </div>
+  </section>
+
+  <section id="bots" class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow" style="margin-bottom:16px" data-i18n="s4.eyebrow">04 — BOTS Y AUTOMATIZACIÓN</div>
+        <h2 data-i18n="s4.h2">Bots y experimentos</h2>
+      </div>
+      <p class="sec-note" data-i18n="s4.note">Prototipos que automatizan lo repetitivo. Aquí se prueban ideas antes de convertirse en producto.</p>
+    </div>
+    <div class="lab">
+      <a class="lab-row" href="https://github.com/ahiram1701/Polybot" target="_blank" rel="noopener"><span class="id">X/01</span><h3>Polybot</h3><p data-i18n="p.polybot">Bot para mercados de predicción de 5 minutos sobre cripto, con modo simulación.</p><span class="go">GITHUB <span class="arr" aria-hidden="true">↗</span><span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span></span></a>
+      <a class="lab-row" href="https://github.com/ahiram1701/Webbot" target="_blank" rel="noopener"><span class="id">X/02</span><h3>Webbot</h3><p data-i18n="p.webbot">Extensión de Chrome que extrae texto y automatiza clics, escritura y publicaciones.</p><span class="go">GITHUB <span class="arr" aria-hidden="true">↗</span><span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span></span></a>
+      <a class="lab-row" href="https://github.com/ahiram1701/Scrappy" target="_blank" rel="noopener"><span class="id">X/03</span><h3>Scrappy</h3><p data-i18n="p.scrappy">Encuentra y rankea videos cortos y memes y te los manda a Telegram, sin guardar nada en disco.</p><span class="go">GITHUB <span class="arr" aria-hidden="true">↗</span><span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span></span></a>
+    </div>
+  </section>
+
+  <section id="creadores" class="wrap">
+    <div class="eyebrow" style="margin-bottom:24px" data-i18n="s5.eyebrow">05 — PARA CREADORES</div>
+    <a class="spot" href="https://create.roblox.com/store/asset/79652808648466/BuildKit-Batch-Rename-Align-Cleanup-Tools" target="_blank" rel="noopener">
+      <div class="spot-main">
+        <div class="tags"><span class="tag on">ROBLOX STUDIO</span><span class="tag">PLUGIN</span></div>
+        <h3>BuildKit</h3>
+        <p data-i18n="p.buildkit">Plugin para Roblox Studio: renombra en lote, alinea y limpia tus modelos en segundos.</p>
+      </div>
+      <span class="btn btn-primary"><span data-i18n="go.roblox">Ver en Roblox</span> <span class="arr" aria-hidden="true">↗</span><span class="sr" data-i18n="newtab">(abre en una pestaña nueva)</span></span>
+    </a>
+  </section>
+
+  <section class="wrap" style="padding-top:96px">
+    <div class="manifesto">
+      <div class="eyebrow accent" style="margin-bottom:24px">&gt; <span data-i18n="man.eyebrow">MANIFIESTO</span><span class="cursor">_</span></div>
+      <p data-i18n="man.p">No necesitamos un equipo de cincuenta personas. Necesitamos ideas claras, código que funcione y la paciencia de terminar lo que empezamos.</p>
+      <div class="sign" data-i18n="man.sign">— Ahiram1701, fundador</div>
+    </div>
+  </section>
+</main>
+
+<footer id="contacto">
+  <div class="wrap foot">
+    <div>
+      <div class="foot-title" data-i18n="foot.title">¿Hablamos?</div>
+      <!-- CAMBIA ESTE CORREO por el del estudio -->
+      <a href="mailto:a1701labs@hotmail.com" class="mail">a1701labs@hotmail.com</a>
+    </div>
+    <div class="social">
+      <a href="https://github.com/1701-Labs" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 6l-6 6 6 6M16 6l6 6-6 6"/></svg>GitHub</a>
+      <!-- Agrega tus redes cuando las abras:
+      <a href="https://1701labs.itch.io" target="_blank" rel="noopener">itch.io</a>
+      -->
+      <a href="https://www.instagram.com/1701labs/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://x.com/1701labs" target="_blank" rel="noopener">X</a>
+    </div>
+  </div>
+  <div class="wrap legal">
+    <span>© <span id="y">2026</span> 1701 LABS · MONTERREY, MX</span>
+    <span data-i18n="legal.built">BUILT BY AHIRAM1701 + IA</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById('y').textContent=new Date().getFullYear();
+
+/* ---------- Idiomas: cada data-i18n="clave" toma su texto de aquí ---------- */
+var I18N={
+  es:{
+    'meta.title':'1701 Labs — Estudio independiente de videojuegos y software',
+    'meta.desc':'1701 Labs crea videojuegos y software independientes: arcades de neón, herramientas con IA y agentes autónomos. Un humano. Una IA. Contra el mundo.',
+    'lang.switch':'Switch to English',
+    'skip':'Saltar al contenido',
+    'nav.games':'/juegos','nav.agents':'/agentes','nav.creators':'/creadores','nav.contact':'/contacto',
+    'hero.eyebrow':'// ESTUDIO INDEPENDIENTE · MONTERREY, MX · EST. 2026',
+    'hero.h1':'Un humano.<br>Una IA.<br><span class="dim">Contra el mundo.</span>',
+    'hero.lead':'1701 Labs crea videojuegos y software independientes: arcades de neón, herramientas con IA y agentes autónomos. Diseñado, programado y lanzado por una sola persona trabajando junto a la IA.',
+    'cta.play':'Jugar OVERDRIVE','cta.see':'Ver proyectos',
+    'st.founder':'FUNDADOR','st.modes':'MODOS ARCADE','st.projects':'PROYECTOS',
+    's1.eyebrow':'01 — JUEGOS','tag.offline':'SIN CONEXIÓN','tag.free':'GRATIS',
+    'od.p':'Cuatro juegos arcade de neón en una sola app. Instálala desde el navegador y juega donde sea, incluso sin internet.',
+    'od.play':'Jugar ahora','mode':'MODO','mode.galaxy':'Galaxia','mode.dungeon':'Mazmorras 3D',
+    's2.h2':'Úsalas hoy','s2.note':'Herramientas con IA para pensar mejor, crear más rápido y llevar el control de tu vida.',
+    's3.eyebrow':'03 — AGENTES IA','s3.h2':'Agentes autónomos','s3.note':'Agentes que planean, analizan y predicen por ti.',
+    's4.eyebrow':'04 — BOTS Y AUTOMATIZACIÓN','s4.h2':'Bots y experimentos','s4.note':'Prototipos que automatizan lo repetitivo. Aquí se prueban ideas antes de convertirse en producto.',
+    's5.eyebrow':'05 — PARA CREADORES',
+    'm.ext':'EXTENSIÓN · PWA','m.audio':'AUDIO · AGENTE','m.agentlocal':'AGENTE · LOCAL','m.multi':'MULTI-AGENTE','m.forecast':'AGENTE · PREVISIÓN',
+    'go.open':'ABRIR','go.roblox':'Ver en Roblox','newtab':'(abre en una pestaña nueva)',
+    'p.confinet':'Mide qué tan confiable es la información que lees en internet, con análisis de IA.',
+    'p.promptvault':'Guarda y organiza tus prompts, con cuenta de Puter o en modo local.',
+    'p.mystats':'Tu vida como un RPG: ocho stats (dinero, salud, inteligencia, carisma y más) en un solo panel.',
+    'p.vibemusic':'Describe una canción con palabras y un agente productor la genera en un timeline multipista.',
+    'p.mamoney':'Gestor de patrimonio, ingresos y gastos fijos. Tus datos se quedan en tu equipo, con dashboard remoto privado.',
+    'p.yarbis':'Agente personal que convierte un objetivo en tareas accionables y recuerda todo lo que haces.',
+    'p.datapilot':'Un equipo de agentes LLM que analiza tus datos y entrena modelos de machine learning.',
+    'p.oraqlo':'Agente estratega que modela el mundo, hace previsiones probabilísticas y simula futuros posibles.',
+    'p.polybot':'Bot para mercados de predicción de 5 minutos sobre cripto, con modo simulación.',
+    'p.webbot':'Extensión de Chrome que extrae texto y automatiza clics, escritura y publicaciones.',
+    'p.scrappy':'Encuentra y rankea videos cortos y memes y te los manda a Telegram, sin guardar nada en disco.',
+    'p.buildkit':'Plugin para Roblox Studio: renombra en lote, alinea y limpia tus modelos en segundos.',
+    'man.eyebrow':'MANIFIESTO',
+    'man.p':'No necesitamos un equipo de cincuenta personas. Necesitamos ideas claras, código que funcione y la paciencia de terminar lo que empezamos.',
+    'man.sign':'— Ahiram1701, fundador',
+    'foot.title':'¿Hablamos?','legal.built':'BUILT BY AHIRAM1701 + IA'
+  },
+  en:{
+    'meta.title':'1701 Labs — Independent game and software studio',
+    'meta.desc':'1701 Labs makes independent games and software: neon arcades, AI tools and autonomous agents. One human. One AI. Against the world.',
+    'lang.switch':'Cambiar a español',
+    'skip':'Skip to content',
+    'nav.games':'/games','nav.agents':'/agents','nav.creators':'/creators','nav.contact':'/contact',
+    'hero.eyebrow':'// INDEPENDENT STUDIO · MONTERREY, MX · EST. 2026',
+    'hero.h1':'One human.<br>One AI.<br><span class="dim">Against the world.</span>',
+    'hero.lead':'1701 Labs makes independent games and software: neon arcades, AI tools and autonomous agents. Designed, coded and shipped by a single person working alongside AI.',
+    'cta.play':'Play OVERDRIVE','cta.see':'See projects',
+    'st.founder':'FOUNDER','st.modes':'ARCADE MODES','st.projects':'PROJECTS',
+    's1.eyebrow':'01 — GAMES','tag.offline':'OFFLINE','tag.free':'FREE',
+    'od.p':'Four neon arcade games in a single app. Install it from your browser and play anywhere, even without internet.',
+    'od.play':'Play now','mode':'MODE','mode.galaxy':'Galaxy','mode.dungeon':'3D Dungeons',
+    's2.h2':'Use them today','s2.note':'AI tools to think better, create faster and stay on top of your life.',
+    's3.eyebrow':'03 — AI AGENTS','s3.h2':'Autonomous agents','s3.note':'Agents that plan, analyze and forecast for you.',
+    's4.eyebrow':'04 — BOTS & AUTOMATION','s4.h2':'Bots and experiments','s4.note':'Prototypes that automate the repetitive stuff. Ideas get tested here before becoming products.',
+    's5.eyebrow':'05 — FOR CREATORS',
+    'm.ext':'EXTENSION · PWA','m.audio':'AUDIO · AGENT','m.agentlocal':'AGENT · LOCAL','m.multi':'MULTI-AGENT','m.forecast':'AGENT · FORECASTING',
+    'go.open':'OPEN','go.roblox':'View on Roblox','newtab':'(opens in a new tab)',
+    'p.confinet':'Measures how trustworthy the information you read online is, with AI analysis.',
+    'p.promptvault':'Save and organize your prompts, with a Puter account or in local mode.',
+    'p.mystats':'Your life as an RPG: eight stats (money, health, intelligence, charisma and more) in a single dashboard.',
+    'p.vibemusic':'Describe a song in words and a producer agent builds it on a multitrack timeline.',
+    'p.mamoney':'Net worth, income and fixed-expense manager. Your data stays on your machine, with a private remote dashboard.',
+    'p.yarbis':'Personal agent that turns a goal into actionable tasks and remembers everything you do.',
+    'p.datapilot':'A team of LLM agents that analyzes your data and trains machine learning models.',
+    'p.oraqlo':'Strategist agent that models the world, makes probabilistic forecasts and simulates possible futures.',
+    'p.polybot':'Bot for 5-minute crypto prediction markets, with a simulation mode.',
+    'p.webbot':'Chrome extension that extracts text and automates clicks, typing and posting.',
+    'p.scrappy':'Finds and ranks short videos and memes and sends them to Telegram, without saving anything to disk.',
+    'p.buildkit':'Roblox Studio plugin: batch rename, align and clean up your models in seconds.',
+    'man.eyebrow':'MANIFESTO',
+    'man.p':'We don\'t need a fifty-person team. We need clear ideas, code that works and the patience to finish what we start.',
+    'man.sign':'— Ahiram1701, founder',
+    'foot.title':'Let\'s talk','legal.built':'BUILT BY AHIRAM1701 + AI'
+  }
+};
+var langBtn=document.getElementById('lang');
+function setLang(lang){
+  var d=I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(function(el){var t=d[el.dataset.i18n];if(t!=null)el.textContent=t;});
+  document.querySelectorAll('[data-i18n-html]').forEach(function(el){var t=d[el.dataset.i18nHtml];if(t!=null)el.innerHTML=t;});
+  document.documentElement.lang=lang;
+  document.title=d['meta.title'];
+  document.querySelector('meta[name="description"]').content=d['meta.desc'];
+  langBtn.setAttribute('aria-label',d['lang.switch']);
+  langBtn.querySelectorAll('[data-l]').forEach(function(s){s.classList.toggle('on',s.dataset.l===lang);});
+  try{localStorage.setItem('lang',lang);}catch(e){}
+}
+var saved=null;
+try{saved=localStorage.getItem('lang');}catch(e){}
+var initial=saved||((navigator.language||'').toLowerCase().indexOf('en')===0?'en':'es');
+if(initial!=='es')setLang(initial);
+langBtn.addEventListener('click',function(){setLang(document.documentElement.lang==='es'?'en':'es');});
+
+/* ---------- Animaciones ---------- */
+var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if('IntersectionObserver' in window){
+  // Sección activa en el menú
+  var navLinks={};
+  document.querySelectorAll('.links a').forEach(function(a){navLinks[a.getAttribute('href').slice(1)]=a;});
+  var navIO=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      Object.keys(navLinks).forEach(function(id){navLinks[id].classList.toggle('active',id===e.target.id);});
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  document.querySelectorAll('main section[id], footer[id]').forEach(function(s){navIO.observe(s);});
+
+  if(!reduce){
+    // Aparición al hacer scroll, con escalonado dentro de cada grupo
+    var revIO=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting)return;
+        var el=e.target;
+        el.classList.add('in');
+        revIO.unobserve(el);
+        // quitar el retraso para que el hover responda al instante
+        el.addEventListener('transitionend',function(){el.style.transitionDelay='';},{once:true});
+      });
+    },{rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.sec-head, .feature, .card, .lab-row, .spot, .manifesto').forEach(function(el){
+      var i=Array.prototype.indexOf.call(el.parentNode.children,el);
+      if(el.matches('.card, .lab-row'))el.style.transitionDelay=(i*70)+'ms';
+      el.classList.add('reveal');
+      revIO.observe(el);
+    });
+
+    // Contador en los stats
+    var statIO=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting)return;
+        statIO.unobserve(e.target);
+        var el=e.target,n=+el.dataset.count,t0=performance.now();
+        (function tick(t){
+          var p=Math.min((t-t0)/900,1);
+          el.textContent=Math.round(n*(1-Math.pow(1-p,3)));
+          if(p<1)requestAnimationFrame(tick);
+        })(t0);
+      });
+    });
+    document.querySelectorAll('[data-count]').forEach(function(el){statIO.observe(el);});
+  }
+}
+</script>
+</body>
+</html>

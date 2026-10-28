@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="g" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M64 0H0V64" fill="none" stroke="#18181B" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="#0A0A0B"/>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#2EF2D6"/>
+  <!-- Marca 17/01 -->
+  <rect x="80" y="80" width="88" height="88" fill="none" stroke="#EDEDEA" stroke-width="5"/>
+  <text x="92" y="112" font-family="Consolas,'JetBrains Mono',monospace" font-size="24" font-weight="700" fill="#EDEDEA">17</text>
+  <text x="128" y="156" font-family="Consolas,'JetBrains Mono',monospace" font-size="24" font-weight="700" fill="#2EF2D6">01</text>
+  <text x="196" y="138" font-family="'Segoe UI','Space Grotesk',Arial,sans-serif" font-size="34" font-weight="600" letter-spacing="5" fill="#EDEDEA">1701 LABS</text>
+  <!-- Lema -->
+  <g font-family="'Segoe UI','Space Grotesk',Arial,sans-serif" font-size="84" font-weight="600" letter-spacing="-2">
+    <text x="76" y="320" fill="#EDEDEA">Un humano. Una IA.</text>
+    <text x="76" y="414" fill="#8E8E89">Contra el mundo.<tspan fill="#2EF2D6">_</tspan></text>
+  </g>
+  <text x="80" y="540" font-family="Consolas,'JetBrains Mono',monospace" font-size="22" letter-spacing="2" fill="#9A9A95">JUEGOS · APPS · AGENTES IA · MONTERREY, MX</text>
+  <text x="1120" y="540" text-anchor="end" font-family="Consolas,'JetBrains Mono',monospace" font-size="22" fill="#2EF2D6">1701-labs.github.io</text>
+</svg>
