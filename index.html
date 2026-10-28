@@ -57,6 +57,7 @@
   --accent:#2EF2D6; /* cámbialo aquí: #B6F23A verde, #FF5E3A naranja, #8C7CFF violeta */
   --glitch:#FF3AF2;
   --sans:'Space Grotesk',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --gutter:clamp(20px,5vw,48px); /* margen lateral de toda la página */
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:88px}
@@ -67,7 +68,8 @@ body{
 }
 a{color:inherit;text-decoration:none}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+/* .wrap solo controla los lados (padding-inline); el resto usa padding-block para no pisarlo */
+.wrap{max-width:calc(1200px + 2*var(--gutter));margin-inline:auto;padding-inline:var(--gutter)}
 .mono{font-family:var(--mono)}
 .eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--text-3)}
 .accent{color:var(--accent)}
@@ -77,7 +79,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-off
 
 /* Nav */
 header{border-bottom:1px solid var(--line);background:rgba(10,10,11,.92);position:sticky;top:0;z-index:10;backdrop-filter:blur(8px)}
-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
 .brand{display:flex;align-items:center;gap:12px}
 .mark{width:36px;height:36px;border:2px solid var(--text);position:relative;font-family:var(--mono);font-size:10px;font-weight:500;line-height:1;flex:none}
 .mark span:first-child{position:absolute;top:3px;left:4px}
@@ -99,7 +101,7 @@ nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between
 .btn-ghost:hover{border-color:var(--text-3)}
 
 /* Hero */
-.hero{padding:120px 0 96px}
+.hero{padding-block:120px 96px}
 .hero .eyebrow{color:var(--accent);margin-bottom:32px}
 h1{margin:0;font-size:clamp(44px,8vw,104px);line-height:.98;font-weight:600;letter-spacing:-.03em}
 h1 .dim{color:#8E8E89}
@@ -110,7 +112,7 @@ h1 .dim{color:#8E8E89}
 .stats small{display:block;font-size:12px;color:var(--text-3);margin-top:6px;letter-spacing:.06em}
 
 /* Secciones */
-section{padding:64px 0}
+section{padding-block:64px}
 .sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:32px}
 h2{margin:0;font-size:44px;font-weight:600;letter-spacing:-.02em}
 .sec-note{margin:0;font-size:16px;color:var(--text-3);max-width:380px;line-height:1.55}
@@ -178,13 +180,13 @@ h2{margin:0;font-size:44px;font-weight:600;letter-spacing:-.02em}
 
 /* Footer */
 footer{border-top:1px solid var(--line);margin-top:32px}
-.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;padding:64px 0}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;padding-block:64px}
 .foot-title{font-size:32px;font-weight:600}
 .mail{display:inline-block;margin-top:16px;font-family:var(--mono);font-size:16px;color:var(--accent)}
 .social{display:flex;flex-wrap:wrap;gap:32px;font-family:var(--mono);font-size:14px}
 .social a{color:var(--text-2);display:flex;align-items:center;gap:8px;min-height:44px}
 .social a:hover{color:var(--text)}
-.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding:24px 0;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--text-3)}
+.legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-block:24px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--text-3)}
 
 /* Aparición al hacer scroll (la clase .reveal solo la pone el JS) */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease,background .15s ease}
@@ -192,10 +194,11 @@ footer{border-top:1px solid var(--line);margin-top:32px}
 
 @media (max-width:640px){
   html{scroll-padding-top:120px}
-  nav{padding:14px 0 0;gap:12px}
-  .links{order:3;flex-basis:100%;margin:0 -24px;padding:0 24px 6px;gap:20px;overflow-x:auto;scrollbar-width:none}
+  nav{padding-block:14px 0;gap:12px}
+  .links{order:3;flex-basis:100%;margin-inline:calc(-1*var(--gutter));padding:0 var(--gutter) 6px;gap:20px;overflow-x:auto;scrollbar-width:none}
   .links::-webkit-scrollbar{display:none}
-  .hero{padding:72px 0 64px}
+  section{padding-block:48px}
+  .hero{padding-block:72px 64px}
   .stats{gap:28px;margin-top:64px}
   .feature-main{padding:32px 24px}
   .modes{border-left:none;border-top:1px solid var(--line-2)}
